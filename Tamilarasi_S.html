@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamilarasi S — Data Mastery & AI Quality Architect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0f172a;
+            --secondary: #10b981;
+            --secondary-dark: #059669;
+            --accent: #0066cc;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --text-light: #475569;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--primary);
+            background: var(--light);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(16, 185, 129, 0.15);
+            border-radius: 50%;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(16, 185, 129, 0.12);
+            border-radius: 50%;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            opacity: 0.95;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .hero-tagline {
+            font-size: 1.05em;
+            opacity: 0.85;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(16, 185, 129, 0.6);
+            padding-bottom: 2px;
+            transition: border-color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            border-bottom-color: var(--secondary);
+        }
+        
+        /* ===== METRICS SECTION ===== */
+        .metrics-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 50px 0 0 0;
+        }
+        
+        .metric-card {
+            background: rgba(16, 185, 129, 0.12);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        
+        .metric-label {
+            font-size: 0.95em;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+        
+        /* ===== MAIN SECTIONS ===== */
+        section {
+            background: white;
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--secondary);
+        }
+        
+        section h2 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .intro-paragraph {
+            font-size: 1.05em;
+            line-height: 1.9;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+        
+        strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        /* ===== STORY SECTION ===== */
+        .story-block {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(0, 102, 204, 0.05));
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .story-block h3 {
+            color: var(--primary);
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .story-block p {
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+        
+        /* ===== PROCESSES SECTION ===== */
+        .process-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .process-item {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+        
+        .process-item:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .process-number {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .process-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .process-description {
+            color: var(--text-light);
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+        
+        .process-impact {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 0.9em;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        /* ===== ACHIEVEMENTS GRID ===== */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .achievement-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(0, 102, 204, 0.08));
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .achievement-box h3 {
+            color: var(--secondary);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .achievement-box p {
+            color: var(--text-light);
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+        
+        /* ===== LEADERSHIP SECTION ===== */
+        .leadership-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .pillar {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            text-align: center;
+        }
+        
+        .pillar-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .pillar h3 {
+            color: var(--primary);
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .pillar p {
+            color: var(--text-light);
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+        
+        /* ===== EXPERTISE SECTION ===== */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .expertise-category {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .expertise-category h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+        
+        .skill-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 10px;
+            border-left: none;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            border: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+        
+        .cta-text {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05em;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: var(--secondary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+        }
+        
+        /* ===== EDUCATION ===== */
+        .education-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .degree-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(0, 102, 204, 0.05));
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+        }
+        
+        .degree-name {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .degree-details {
+            color: var(--text-light);
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        
+        .degree-gpa {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            color: var(--secondary);
+            font-weight: 700;
+            display: inline-block;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border);
+        }
+        
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .hero-subtitle { font-size: 1.2em; }
+            section { padding: 30px 20px; }
+            .process-showcase { grid-template-columns: 1fr; }
+            .metrics-showcase { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Tamilarasi S</h1>
+            <p class="hero-subtitle">Data Mastery & AI Quality Architect</p>
+            <p class="hero-tagline">Building trust through precision | 15 processes mastered | Delivering excellence without supervision</p>
+            <div class="contact-info">
+                <a href="mailto:shantamil799@gmail.com">shantamil799@gmail.com</a>
+                <a href="https://linkedin.com/in/stamilarasi">LinkedIn Profile</a>
+            </div>
+            
+            <div class="metrics-showcase">
+                <div class="metric-card">
+                    <div class="metric-number">99%</div>
+                    <div class="metric-label">Data Accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">500+</div>
+                    <div class="metric-label">Ambiguities Resolved</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">3x</div>
+                    <div class="metric-label">MVP Award Winner</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">Top 1%</div>
+                    <div class="metric-label">Performance Tier</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">30%</div>
+                    <div class="metric-label">Efficiency Gain</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">15</div>
+                    <div class="metric-label">Core Processes</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- EXECUTIVE OVERVIEW -->
+        <section>
+            <h2>The Professional Edge</h2>
+            <p class="section-subtitle">Who I Am & What I Deliver</p>
+            
+            <p class="intro-paragraph">
+                I am a <strong>data-driven professional</strong> who transforms complexity into clarity. With <strong>2.7 years of hands-on experience</strong> architecting data quality systems, evaluating AI at global scale, and designing operational excellence, I've built a track record of <strong>delivering exceptional results under extreme pressure</strong>.
+            </p>
+            
+            <p class="intro-paragraph">
+                My superpower? <strong>Building systems that work</strong>, identifying patterns in massive datasets, designing process improvements that teams immediately adopt, and executing with precision that doesn't require supervision. I'm the person <strong>you assign a task to and never have to look back on</strong> — because it will be done, and it will be done exceptionally well.
+            </p>
+            
+            <div class="story-block">
+                <h3>🎯 The "Autopilot" Testament</h3>
+                <p>
+                    My manager once told me: <strong>"You're an autopilot employee. Whatever I assign to you, I don't have to keep an eye on it. I know it's done, and I know it's done well."</strong> This wasn't just feedback—it was a reflection of a core professional philosophy: <strong>ownership, accountability, and excellence without hand-holding</strong>. That's the standard I bring to every project.
+                </p>
+            </div>
+        </section>
+
+        <!-- AMAZON EXPERIENCE - DEEP DIVE -->
+        <section>
+            <h2>Amazon: Data Quality Architect at Scale</h2>
+            <p class="section-subtitle">JUN 2024 – MAR 2026 | Building Safe, Accurate AI Systems for Billions of Users</p>
+            
+            <p class="intro-paragraph">
+                At Amazon, I architected and executed <strong>large-scale data quality and AI evaluation systems</strong> that directly impacted billions of users globally. My work spanned <strong>15 distinct processes</strong>, each requiring specialized expertise in pattern recognition, policy interpretation, system design, and data integrity. I evaluated critical AI systems (Rufus, Alexa, Shopping features), identified vulnerabilities, and provided structured feedback that drove measurable system improvements. The result: <strong>consistent 99% accuracy</strong> across all projects, recognition as a <strong>top 1% performer</strong>, and <strong>3 consecutive MVP Awards</strong>.
+            </p>
+
+            <div class="story-block">
+                <h3>💡 The Architecture of Excellence</h3>
+                <p>
+                    Managing 15 distinct processes isn't about multitasking—it's about building systems that scale. Each process required me to deeply understand its operational context, policy requirements, quality standards, and business impact. I didn't just execute; I <strong>architected improvements</strong> that reduced turnaround time by <strong>30%</strong>, influenced team-wide adoption of new methodologies, and consistently identified systemic weaknesses that could compromise product quality and user safety.
+                </p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 40px; margin-bottom: 25px; color: var(--primary); font-weight: 700;">The 15 Core Processes: Complete Architecture</h3>
+            
+            <div class="process-showcase">
+                <div class="process-item">
+                    <div class="process-number">1</div>
+                    <div class="process-title">WDCS (Rufus AI Evaluation)</div>
+                    <div class="process-description">Architected and executed evaluation framework for Rufus AI responses. Assessed helpfulness, accuracy, and relevance across complex queries. Hit <strong>120% performance target</strong> and earned Super Squad Award for exceptional execution.</div>
+                    <div class="process-impact">Impact: Direct improvement to Rufus AI reliability & user satisfaction</div>
+                </div>
+                
+                <div class="process-item">
+                    <div class="process-number">2</div>
+                    <div class="process-title">STP (Safety & Trust Policy)</div>
+                    <div class="process-description">Built and managed Safety & Trust Policy evaluation framework, processing 90–100 responses daily. Maintained <strong>99% accuracy</strong> while identifying policy violations, edge cases, and system gaps. Designed process improvements adopted company-wide.</div>
+                    <div class="process-impact">Impact: Enhanced account security & user protection protocols</div>
+                </div>
+                
+                <div class="process-item">
+                    <div class="process-number">3</div>
+                    <div class="process-title">GenCX (Alexa Voice Evaluation)</div>
+                    <div class="process-description">Architected voice response evaluation system for Alexa devices. Assessed accuracy, tone, safety, and user experience. Identified critical gaps in voice AI and provided feedback that improved voice-activated shopping and information retrieval.</div>
+                    <div class="process-impact">Impact: Enhanced Alexa reliability & voice commerce accuracy</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">4</div>
+                    <div class="process-title">Brand Curation & Logo Extraction</div>
+                    <div class="process-description">Verified and curated brand identity data—logos, brand pages, brand accuracy. Ensured Shopping catalog presented authentic, high-quality brand information to millions of customers globally.</div>
+                    <div class="process-impact">Impact: Brand trust & data accuracy at scale</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">5</div>
+                    <div class="process-title">Product Validation (AI Response)</div>
+                    <div class="process-description">Verified AI-generated product descriptions and recommendations against ground truth. Identified model inaccuracies and training data gaps, providing corrective feedback to improve AI datasets and model performance.</div>
+                    <div class="process-impact">Impact: AI model accuracy improvement & better training data</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">6</div>
+                    <div class="process-title">Product Validation (Brand Page)</div>
+                    <div class="process-description">Validated products against official brand pages, ensuring customers saw accurate, authorized product information. Critical gatekeeper role protecting brand integrity and customer trust.</div>
+                    <div class="process-impact">Impact: Customer trust & brand protection</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">7</div>
+                    <div class="process-title">Relevancy (Cross-Verification)</div>
+                    <div class="process-description">Checked product and listing relevancy across multiple platforms. Identified misclassifications, category errors, and cross-platform inconsistencies that impacted customer discovery and search experience.</div>
+                    <div class="process-impact">Impact: Improved search accuracy & discovery</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">8</div>
+                    <div class="process-title">OAB (Off-Brand Curation)</div>
+                    <div class="process-description">Curated and verified non-Amazon brand listings, ensuring authenticity and compliance. Governed third-party seller standards and brand representation in Amazon catalog.</div>
+                    <div class="process-impact">Impact: Marketplace quality control & seller governance</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">9</div>
+                    <div class="process-title">Offer Creation</div>
+                    <div class="process-description">Curated and verified website offers—pricing, promotional terms, conditions, validity windows. Ensured accuracy that directly affects customer purchasing decisions and transaction trust.</div>
+                    <div class="process-impact">Impact: Accurate customer-facing promotional data</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">10</div>
+                    <div class="process-title">Merchant Creation</div>
+                    <div class="process-description">Verified merchant profile data, seller information, marketplace eligibility. Served as critical quality gatekeeper ensuring only qualified, trustworthy sellers operate on the platform.</div>
+                    <div class="process-impact">Impact: Seller quality assurance & marketplace integrity</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">11</div>
+                    <div class="process-title">Payment Creation</div>
+                    <div class="process-description">Curated and verified payment methods, payment processor data, and transaction options. Ensured payment system accuracy, security, and reliability for billions of global transactions.</div>
+                    <div class="process-impact">Impact: Payment system accuracy & security</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">12</div>
+                    <div class="process-title">Prepurchase Curation</div>
+                    <div class="process-description">Verified prepurchase options, bundles, complementary products, and related recommendations. Ensured customers discovered relevant, accurate, and valuable purchasing opportunities.</div>
+                    <div class="process-impact">Impact: Enhanced customer shopping experience</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">13</div>
+                    <div class="process-title">Success Rate Curation</div>
+                    <div class="process-description">Curated success rate metrics and performance data across product categories. Ensured transparency and accuracy in how product reliability and customer satisfaction are represented.</div>
+                    <div class="process-impact">Impact: Customer transparency & data integrity</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">14</div>
+                    <div class="process-title">Department Fetching</div>
+                    <div class="process-description">Architected product-to-department matching and taxonomy governance. Critical foundational work enabling accurate product discovery, organized shopping experience, and category structure.</div>
+                    <div class="process-impact">Impact: Search taxonomy accuracy & discovery</div>
+                </div>
+
+                <div class="process-item">
+                    <div class="process-number">15</div>
+                    <div class="process-title">List (Query Segregation & Accuracy)</div>
+                    <div class="process-description">Segmented customer search queries and validated result accuracy. Identified search logic gaps, misclassifications, and relevancy issues that impact customer query-to-product matching.</div>
+                    <div class="process-impact">Impact: Search result accuracy & customer satisfaction</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 40px; margin-bottom: 25px; color: var(--primary); font-weight: 700;">Achievements That Define Excellence</h3>
+            
+            <div class="achievements-grid">
+                <div class="achievement-box">
+                    <h3>99% Accuracy Consistently</h3>
+                    <p>Maintained exceptional accuracy across 90–100 daily evaluations and 500+ critical data ambiguities, setting the operational standard for global teams.</p>
+                </div>
+                <div class="achievement-box">
+                    <h3>3-Time MVP Award Winner</h3>
+                    <p>Three consecutive MVP Awards and Super Squad Award recognition, placing me in the top 1% of performers across all teams, geographies, and functions.</p>
+                </div>
+                <div class="achievement-box">
+                    <h3>30% Efficiency Improvement</h3>
+                    <p>Designed and implemented process improvements that reduced annotation turnaround time by 30% while maintaining 99% accuracy—a rare dual-metric achievement.</p>
+                </div>
+                <div class="achievement-box">
+                    <h3>500+ Critical Issues Resolved</h3>
+                    <p>Identified and resolved 500+ critical data ambiguities through cross-functional collaboration and deep analytical thinking, strengthening data integrity across projects.</p>
+                </div>
+                <div class="achievement-box">
+                    <h3>Leadership Without Authority</h3>
+                    <p>Designed process improvements that teams adopted and implemented without formal management authority—demonstrating leadership through expertise and credibility.</p>
+                </div>
+                <div class="achievement-box">
+                    <h3>System Documentation & UAT</h3>
+                    <p>Executed rigorous User Acceptance Testing, identified systemic gaps, and created comprehensive process documentation that drove continuous improvement across teams.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KRIYA EXPERIENCE -->
+        <section>
+            <h2>Kriya IT Pvt. Ltd.: Quality Operations Architect</h2>
+            <p class="section-subtitle">MAR 2021 – JAN 2022 | Building the Foundation for Data Mastery</p>
+            
+            <p class="intro-paragraph">
+                At Kriya IT, I architected and executed <strong>rigorous quality assurance operations</strong> that formed the foundation for my later expertise. Operating under critical deadlines and high-stakes situations, I delivered <strong>98% accuracy</strong> and became the <strong>go-to architect</strong> when quality couldn't be compromised. I identified and resolved <strong>500+ data discrepancies</strong> and spearheaded process improvements that reduced error rates by <strong>25%</strong>.
+            </p>
+
+            <div class="story-block">
+                <h3>🔍 Building the Foundation of Precision</h3>
+                <p>
+                    My work at Kriya wasn't just about compliance—it was about architecting systems of excellence under pressure. I learned to work independently, take ownership of complex problems, and deliver without requiring oversight. These fundamentals became the core of my professional identity: <strong>accountability, precision, and architectural thinking</strong>.
+                </p>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-box">
+                    <h3>98% Accuracy Under Pressure</h3>
+                    <p>Maintained 98% data accuracy through high-volume operations and critical deadlines—the foundation for my later 99% performance at Amazon.</p>
+                </div>
+                <div class="achievement-box">
+                    <h3>500+ Discrepancies Identified</h3>
+                    <p>Analyzed large-scale datasets to identify and resolve 500+ data discrepancies, demonstrating deep pattern recognition and problem-solving capabilities.</p>
+                </div>
+                <div class="achievement-box">
+                    <h3>25% Error Rate Reduction</h3>
+                    <p>Designed and implemented process improvements that reduced error rates by 25%, raising team performance benchmarks across all operations.</p>
+                </div>
+                <div class="achievement-box">
+                    <h3>Go-To Quality Architect</h3>
+                    <p>Earned reputation as the team's data reliability expert—designated for high-stakes, quality-critical projects where excellence was non-negotiable.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEADERSHIP PHILOSOPHY -->
+        <section>
+            <h2>What Drives My Excellence</h2>
+            <p class="section-subtitle">My Core Professional Pillars</p>
+            
+            <div class="leadership-pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">🎯</div>
+                    <h3>Ownership Without Authority</h3>
+                    <p>I don't wait for permission to improve systems or solve problems. I identify issues, architect solutions, and implement changes—influencing teams through credibility and results.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">📊</div>
+                    <h3>Data-Driven Architecture</h3>
+                    <p>Every decision is backed by data and metrics. I measure impact, track performance, and use quantified results to architect continuous improvement and strategic decisions.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">⚡</div>
+                    <h3>Execution With Excellence</h3>
+                    <p>I deliver consistently, under pressure, without requiring supervision. Quality and speed are not trade-offs—they're both foundational requirements in my work.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🤝</div>
+                    <h3>Cross-Functional Impact</h3>
+                    <p>I collaborate effectively with engineering, product, and leadership teams. I translate complex data into insights that drive organizational decisions and strategy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERTISE & MASTERY -->
+        <section>
+            <h2>Areas of Expertise & Mastery</h2>
+            <p class="section-subtitle">Where I Deliver Greatest Value</p>
+            
+            <div class="expertise-grid">
+                <div class="expertise-category">
+                    <h3>📊 Data Analysis & Architecture</h3>
+                    <ul class="skill-list">
+                        <li><strong>Large-Scale Data Analysis</strong> — Identifying patterns in massive datasets</li>
+                        <li><strong>System Architecture</strong> — Building quality systems that scale</li>
+                        <li><strong>Trend Identification</strong> — Spotting patterns before they become problems</li>
+                        <li><strong>Risk Analysis</strong> — Identifying weak points and systemic vulnerabilities</li>
+                        <li><strong>Root Cause Analysis</strong> — Solving problems at their source</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-category">
+                    <h3>🔒 Trust & Safety Architecture</h3>
+                    <ul class="skill-list">
+                        <li><strong>Safety & Trust Policy (STP) Frameworks</strong> — Deep policy expertise</li>
+                        <li><strong>Account Abuse Detection</strong> — Identifying compromise patterns at scale</li>
+                        <li><strong>Unauthorized Access Pattern Recognition</strong> — Spotting security weaknesses</li>
+                        <li><strong>Policy Framework Design</strong> — Building protective interventions</li>
+                        <li><strong>Compliance & Risk Mitigation</strong> — Preventing abuse before it escalates</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-category">
+                    <h3>🤖 AI Evaluation & Assessment</h3>
+                    <ul class="skill-list">
+                        <li><strong>LLM Data Evaluation</strong> — Assessing AI model quality and safety</li>
+                        <li><strong>Prompt Feedback & Refinement (RLHF)</strong> — Improving AI through structured feedback</li>
+                        <li><strong>AI Performance Metrics</strong> — Measuring accuracy, safety, and reliability</li>
+                        <li><strong>Text Data Annotation</strong> — Training data quality at global scale</li>
+                        <li><strong>Tool Performance Analysis</strong> — Identifying improvements to AI systems</li>
+                    </ul>
+                </div>
+                
+                <div class="expertise-category">
+                    <h3>⚙️ Process & Operations Excellence</h3>
+                    <ul class="skill-list">
+                        <li><strong>Process Improvement Architecture</strong> — Designing systems that work</li>
+                        <li><strong>Prioritization Under Pressure</strong> — Managing competing demands strategically</li>
+                        <li><strong>Performance Metrics & KPIs</strong> — Measuring what matters most</li>
+                        <li><strong>Cross-Functional Collaboration</strong> — Getting results across teams</li>
+                        <li><strong>Leadership Without Authority</strong> — Influencing through expertise & credibility</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section>
+            <h2>Education & Academic Excellence</h2>
+            <p class="section-subtitle">Foundation of Analytical Thinking & Strategic Leadership</p>
+            
+            <div class="education-showcase">
+                <div class="degree-card">
+                    <div class="degree-name">Master of Business Administration (MBA)</div>
+                    <div class="degree-details">2019 – 2021</div>
+                    <div class="degree-gpa">CGPA: 8.8 — Distinction Level</div>
+                    <p style="margin-top: 15px; color: var(--text-light); font-size: 0.9em;">Advanced business strategy, operational management, and organizational thinking that inform my architectural approach to complex systems and strategic decision-making.</p>
+                </div>
+                
+                <div class="degree-card">
+                    <div class="degree-name">Bachelor of Science — Mathematics</div>
+                    <div class="degree-details">2016 – 2019</div>
+                    <div class="degree-gpa">CGPA: 8.9 — Distinction Level</div>
+                    <p style="margin-top: 15px; color: var(--text-light); font-size: 0.9em;">Strong quantitative foundation providing deep analytical rigor, statistical thinking, and logical problem-solving capabilities that underpin all my professional work.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>Let's Create Impact Together</h2>
+            <p class="cta-text">If you're looking for someone who architects excellence without supervision, solves complex problems through data mastery, and drives meaningful improvements at scale—let's talk.</p>
+            <a href="mailto:shantamil799@gmail.com" class="cta-button">Start a Conversation</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tamilarasi S. Built to showcase excellence through precision. | <a href="https://linkedin.com/in/stamilarasi">Connect on LinkedIn</a></p>
+    </footer>
+</body>
+</html>
